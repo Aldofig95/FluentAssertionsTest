@@ -5,6 +5,7 @@ namespace FluentAssertionsTest
     public class FluentAssertionsTutorial
     {
         [Fact]
+        //Normal Success tutorial
         public void Tutorial()
         {
             string actual = "ABCDEFGHI";
@@ -12,6 +13,7 @@ namespace FluentAssertionsTest
         }
 
         [Fact]
+        //Normal Fail tutorial
         public void Tutorial2()
         {
             IEnumerable<int> numbers = new[] { 1, 2, 3 };
@@ -21,6 +23,7 @@ namespace FluentAssertionsTest
         }
 
         [Fact]
+        //Fail with trace explanation
         public void Tutorial3()
         {
             string username = "dennis";
@@ -28,6 +31,7 @@ namespace FluentAssertionsTest
         }
 
         [Fact]
+        //Uses of nullables and BeOfType
         public void Tutorial4()
         {
             object theObject = null;
@@ -38,6 +42,13 @@ namespace FluentAssertionsTest
             theObject = "whatever";
             theObject.Should().BeOfType<string>("because a {0} is set", typeof(string));
             theObject.Should().BeOfType(typeof(string), "because a {0} is set", typeof(string));
+        }
+        [Fact]
+        //Numeric Type
+        public void Tutorial5()
+        {
+            float value = 3.1415F;
+            value.Should().BeApproximately(3.14F, 0.01F);
         }
             
     }
